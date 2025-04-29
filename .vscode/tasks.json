@@ -1,0 +1,35 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compilar Keyhunter com OpenSSL",
+            "type": "shell",
+            "command": "/mingw64/bin/g++",
+            "args": [
+                "-O3",
+                "-march=native",
+                "-I", "/mingw64/include",
+                "-I", "/mingw64/include/openssl",
+                "-L", "/mingw64/lib",
+                "keyhunter.cpp",
+                "-o", "keyhunter.exe",
+                "-lssl",
+                "-lcrypto",
+                "-lsecp256k1",
+                "-lpthread"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "shell": {
+                    "executable": "C:/msys64/usr/bin/bash.exe",
+                    "args": ["-l", "-c"]
+                }
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
